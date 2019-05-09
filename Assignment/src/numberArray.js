@@ -11,16 +11,16 @@ class NumberArray {
 	}
 
 	xTotal() {
-		xTotal = 0
-		for (var i = 0; i < n; i++) {
+		var xTotal = 0
+		for (var i = 0; i < this.n(); i++) {
 			xTotal += Number(this.allMyXValues[i])
 		}
 		return xTotal
 	}
 
 	yTotal() {
-		yTotal = 0
-		for (var i = 0; i < n; i++) {
+		var yTotal = 0
+		for (var i = 0; i < this.n(); i++) {
 			yTotal += Number(this.allMyYValues[i])
 		}
 		return yTotal
@@ -31,34 +31,34 @@ class NumberArray {
 	}
 
 	xSquared() {
-		xSquared = 0
-		for (var i = 0; i < n; i++) {
+		var xSquared = 0
+		for (var i = 0; i < this.n(); i++) {
 			xSquared += Math.pow(Number(this.allMyXValues[i]),2)
 		}
 		return xSquared
 	}
 
 	ySquared() {
-		ySquared = 0
-		for (var i = 0; i < n; i++) {
+		var ySquared = 0
+		for (var i = 0; i < this.n(); i++) {
 			ySquared += Math.pow(Number(this.allMyYValues[i]),2)
 		}
 		return ySquared
 	}
 
 	xTimesy() {
-		xTimesy = 0
-		for (var i = 0; i < n; i++) {
+		var xTimesy = 0
+		for (var i = 0; i < this.n(); i++) {
 			xTimesy += ((Number(this.allMyXValues[i]))*(Number(this.allMyYValues[i])))
 		}
 		return xTimesy
 	}
 	calculateCorrelation() {
-		return ((n()*xTimesy())-(xTotal()*yTotal())) / Math.sqrt(((n()*xSquared())-(Math.pow(xTotal(),2))) * ((n()*ySquared())-(Math.pow(yTotal(),2))))
+		return ((this.n()*this.xTimesy())-(this.xTotal()*this.yTotal())) / Math.sqrt(((this.n()*this.xSquared())-(Math.pow(this.xTotal(),2))) * ((this.n()*this.ySquared())-(Math.pow(this.yTotal(),2))))
 	}
 
 	calculateLinearRegression() {
-		var xAve = xTotal / n
+		var xAve = this.xTotal() / this.n()
 		console.log(xAve)
 	}
 
