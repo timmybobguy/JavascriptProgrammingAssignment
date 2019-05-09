@@ -57,9 +57,17 @@ class NumberArray {
 		return ((this.n()*this.xTimesy())-(this.xTotal()*this.yTotal())) / Math.sqrt(((this.n()*this.xSquared())-(Math.pow(this.xTotal(),2))) * ((this.n()*this.ySquared())-(Math.pow(this.yTotal(),2))))
 	}
 
-	calculateLinearRegression() {
-		var xAve = this.xTotal() / this.n()
-		console.log(xAve)
+	xAve() {
+		return this.xTotal() / this.n()
+	}
+
+	yAve() {
+		return this.yTotal() / this.n()
+	}
+
+	calculateB1() {
+		return ( (this.xTimesy()-(this.n()*this.xAve()*this.yAve())) / (this.xSquared()-(this.n()*(Math.pow(this.xAve(),2)))) )
+
 	}
 
 
