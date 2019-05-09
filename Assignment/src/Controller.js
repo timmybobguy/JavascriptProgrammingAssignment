@@ -15,6 +15,7 @@ class Controller {
 
 		theNumberArray.calculateCorrelation()
 		console.log(theNumberArray.calculateB1())
+		console.log(theNumberArray.calculateB2())
 
 
 		return theNumberArray

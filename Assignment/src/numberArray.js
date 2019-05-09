@@ -67,9 +67,11 @@ class NumberArray {
 
 	calculateB1() {
 		return ( (this.xTimesy()-(this.n()*this.xAve()*this.yAve())) / (this.xSquared()-(this.n()*(Math.pow(this.xAve(),2)))) )
-
 	}
 
+	calculateB2() {
+		return (this.yAve() - (this.calculateB1()*this.xAve()))
+	}
 
 
 
