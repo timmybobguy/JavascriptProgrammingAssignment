@@ -65,11 +65,11 @@ class NumberArray {
 		return this.yTotal() / this.n()
 	}
 
-	calculateB0() {
+	calculateB1() {
 		return ( (this.xTimesy()-(this.n()*this.xAve()*this.yAve())) / (this.xSquared()-(this.n()*(Math.pow(this.xAve(),2)))) )
 	}
 
-	calculateB1() {
+	calculateB0() {
 		return (this.yAve() - (this.calculateB1()*this.xAve()))
 	}
 
