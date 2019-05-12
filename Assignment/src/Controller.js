@@ -13,9 +13,9 @@ class Controller {
 		theNumberArray.addValues(368, 788)
 		theNumberArray.addValues(961, 1601)
 
-		theNumberArray.calculateCorrelation()
+		console.log(theNumberArray.calculateCorrelation())
+		console.log(theNumberArray.calculateB0())
 		console.log(theNumberArray.calculateB1())
-		console.log(theNumberArray.calculateB2())
 
 
 		return theNumberArray
