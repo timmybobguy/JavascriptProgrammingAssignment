@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> THis is a page </title>
+	<!--- Vue script -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="src/Controller.js"></script>
+	<script src="src/numberArray.js"></script>
+	
+</head>
+
+<body onload="onLoad()">
+
+<div id="app">
+    <h2>Select test files</h2>
+    <input type="file" @change="onFileChange">
+    <br />
+    <br />
+    {{content}}
+
+</div>
+
+<script src="src/loader.js"></script>
+
+<script>
+
+function onLoad() {
+
+	var theNumberArray = Controller.setup()
+	console.log( theNumberArray )
+
+}
+
+</script>
+
+</body>
+</html>
