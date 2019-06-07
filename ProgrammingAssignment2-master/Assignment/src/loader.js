@@ -6,7 +6,10 @@ new Vue({
     contentX: [],
     contentY: [],
     secondFile: false,
-    showButton: false
+    showButton: false,
+    correlation: "",
+    b0: "",
+    b1: ""
   },
   methods: {
     onFileChange(e) {
@@ -39,7 +42,11 @@ new Vue({
     },
     calculate() {
       if (this.secondFile == false) {
-        loadData(this.contentX, this.contentY)
+        let answerArray = []
+        answerArray = calculate(this.contentX, this.contentY)
+        this.correlation = answerArray[0]
+        this.b0 = answerArray[1]
+        this.b1 = answerArray[2]
       }
     }
 
