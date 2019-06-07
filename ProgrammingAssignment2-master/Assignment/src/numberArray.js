@@ -76,9 +76,5 @@ class NumberArray {
 	calculateB0() {
 		return (this.yAve() - (this.calculateB1()*this.xAve()))
 	}
-
-
-
-
-
 }
+module.exports = NumberArray
