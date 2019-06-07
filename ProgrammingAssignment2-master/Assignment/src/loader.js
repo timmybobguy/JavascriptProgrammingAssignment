@@ -45,6 +45,13 @@ new Vue({
         let answerArray = []
         answerArray = calculate(this.contentX, this.contentY)
         this.correlation = answerArray[0]
+        if (this.correlation < -0.25) {
+          this.correlation = String(answerArray[0]) + " (There is a strong negative correlation between these arrays)"
+        } else if (this.correlation > 0.25) {
+          this.correlation = String(answerArray[0]) + " (There is a strong positive correlation between these arrays)"
+        } else {
+          this.correlation = String(answerArray[0]) + " (There is little to no correlation between these arrays)"
+        }
         this.b0 = answerArray[1]
         this.b1 = answerArray[2]
       }

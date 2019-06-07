@@ -18,9 +18,9 @@
     <input type="file" @change="onFileChange">
     <br />
     <br />
-    {{contentX}}
+    <p> X Values: {{contentX}} </p>
 		<br />
-    {{contentY}}
+    <p> Y Values: {{contentY}} </p>
 		<br />
 		<button v-if="showButton" v-on:click="calculate">Calculate me</button>
 		<br />
@@ -38,7 +38,7 @@ function calculate(Xvalues, Yvalues) {
 	var theNumberArray = Controller.setup()
 
 	if (Xvalues.length != Yvalues.length) {
-		console.log("Length error")
+		console.log("Array length error!")
 	} else {
 		for (var i = 0; i < Xvalues.length; i++) {
 			theNumberArray.addValues(Xvalues[i], Yvalues[i])
@@ -46,13 +46,6 @@ function calculate(Xvalues, Yvalues) {
 	}
 
 	return ([theNumberArray.calculateCorrelation(), theNumberArray.calculateB0(), theNumberArray.calculateB1()])
-
-
-
-	console.log(theNumberArray.calculateCorrelation())
-	console.log(theNumberArray.calculateB0())
-	console.log(theNumberArray.calculateB1())
-
 }
 
 </script>
