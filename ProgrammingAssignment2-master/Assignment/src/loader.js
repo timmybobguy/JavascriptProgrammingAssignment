@@ -1,7 +1,11 @@
 new Vue({
   el: '#app',
   data: {
-    content: []
+    message: "Please load X Values",
+    messageData: ["Please load X Values","Please load Y Values"],
+    contentX: [],
+    contentY: [],
+    secondFile: false
   },
   methods: {
     onFileChange(e) {
@@ -14,16 +18,24 @@ new Vue({
     loadNumbers(file) {
       let reader = new FileReader()
 
-      reader.onload = (e) => {
-        this.content =  e.target.result.split(/\n/)
+      if (this.secondFile == false) {
+        reader.onload = (e) => {
+          this.contentX =  e.target.result.split(/\n/)
+        }
+        this.secondFile = true
+        this.message = this.messageData[1]
+      } else {
+        reader.onload = (e) => {
+          this.contentY =  e.target.result.split(/\n/)
+        }
+        this.secondFile = false
+        this.message = this.messageData[0]
       }
-	
-	  for (var i = 0; i < this.content.length; i++) {
-		theNumberArray.addValues(this.content[i])
-	  }
+
+
       reader.readAsText(file)
 
     }
-	
+
   }
 })

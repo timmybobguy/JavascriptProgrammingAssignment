@@ -6,18 +6,21 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="src/Controller.js"></script>
 	<script src="src/numberArray.js"></script>
-	
+
 </head>
 
 <body onload="onLoad()">
 
 <div id="app">
-    <h2>Select test files</h2>
+    {{message}}
+		<br />
+		<br />
     <input type="file" @change="onFileChange">
     <br />
     <br />
-    {{content}}
-
+    {{contentX}}
+		<br />
+    {{contentY}}
 </div>
 
 <script src="src/loader.js"></script>
