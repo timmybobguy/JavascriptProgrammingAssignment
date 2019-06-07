@@ -5,7 +5,8 @@ new Vue({
     messageData: ["Please load X Values","Please load Y Values"],
     contentX: [],
     contentY: [],
-    secondFile: false
+    secondFile: false,
+    showButton: false
   },
   methods: {
     onFileChange(e) {
@@ -30,11 +31,16 @@ new Vue({
         }
         this.secondFile = false
         this.message = this.messageData[0]
+        this.showButton = true
       }
-
 
       reader.readAsText(file)
 
+    },
+    calculate() {
+      if (this.secondFile == false) {
+        loadData(this.contentX, this.contentY)
+      }
     }
 
   }

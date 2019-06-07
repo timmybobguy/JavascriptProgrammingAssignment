@@ -9,7 +9,7 @@
 
 </head>
 
-<body onload="onLoad()">
+<body>
 
 <div id="app">
     {{message}}
@@ -21,16 +21,35 @@
     {{contentX}}
 		<br />
     {{contentY}}
+		<br />
+		<button v-if="showButton" v-on:click="calculate">Calculate me</button>
 </div>
 
 <script src="src/loader.js"></script>
 
 <script>
 
-function onLoad() {
+function loadData(Xvalues, Yvalues) {
 
 	var theNumberArray = Controller.setup()
+
 	console.log( theNumberArray )
+	console.log(Xvalues)
+	console.log(Yvalues)
+
+	if (Xvalues.length != Yvalues.length) {
+		console.log("error")
+	} else {
+		for (var i = 0; i < Xvalues.length; i++) {
+			theNumberArray.addValues(Xvalues[i], Yvalues[i])
+		}
+	}
+
+
+
+	console.log(theNumberArray.calculateCorrelation())
+	console.log(theNumberArray.calculateB0())
+	console.log(theNumberArray.calculateB1())
 
 }
 
