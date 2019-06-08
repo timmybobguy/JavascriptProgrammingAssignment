@@ -1,57 +1,37 @@
-// CommonJS Modules, one ECMAScript 5 module systems, in Node.js
 const {
   readFile,
   appendFileSync
 } = require('fs')
 
-
-/*
-// when using fs.promises API of Node
-const fs = require('fs')
-const fsPromises = fs.promises
-*/
-
-
 const NumArray = require("./src/numberArray.js")
 
-let inFile = process.argv[2]
-let outFile = process.argv[3]
-console.log("%s \r\n%s", inFile, outFile)
+let inFileX = process.argv[2]
+let inFileY = process.argv[3]
+let outFile = process.argv[4]
 
-readFile(inFile, 'utf8', (error, text) => {
+console.log("%s \r\n%s", inFileX, inFileY, outFile)
+
+readFile(inFileX, inFileY, 'utf8', (error, text) => {
   if (error) {
     throw error
   }
 
-  let dataArray = text.split('\r\n').map(x => Number(x))
-  console.log(dataArray)
+  let dataArrayX = text.split('\r\n').map(x => Number(x))
+  console.log(dataArrayX)
 
-  let sum = Calc.calcSum(dataArray)
-  console.log(sum)
+  let dataArrayY = text.split('\r\n').map(x => Number(x))
+  console.log(dataArrayY)
 
+  //let sum = Calc.calcSum(dataArray)
+  //console.log(sum)
+  for (var i = 0; i < dataArrayX.length; i++) {
+    NumArray.addValues(dataArrayX[i], dataArrayY[i])
+  }
+  var test = NumArray.n()
+  console.log(n)
+
+  /*
   for (let x of dataArray) {
-
-    /*
-    // Asynchronously append data to a file
-    fsPromises.appendFile(outFile, x + '\r\n')
-      .then(() => {
-        console.log('added ', x)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    }
-
-    fsPromises.appendFile(outFile, 'sum = ' + sum + '\r\n')
-      .then(() => {
-        console.log('sum added ', sum)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    */
-
-
 
     // Synchronously append data to a file
     try {
@@ -68,4 +48,6 @@ readFile(inFile, 'utf8', (error, text) => {
   } catch (err) {
     console.log(err)
   }
+
+  */
 })

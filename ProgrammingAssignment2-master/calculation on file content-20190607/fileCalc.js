@@ -5,11 +5,11 @@ const {
 } = require('fs')
 
 
-/* 
+
 // when using fs.promises API of Node
-const fs = require('fs')
-const fsPromises = fs.promises 
-*/
+//const fs = require('fs')
+//const fsPromises = fs.promises
+
 
 
 const Calc = require('./Calculator.js')
@@ -31,8 +31,8 @@ readFile(inFile, 'utf8', (error, text) => {
 
   for (let x of dataArray) {
 
-    /*  
-    // Asynchronously append data to a file   
+    /*
+    // Asynchronously append data to a file
     fsPromises.appendFile(outFile, x + '\r\n')
       .then(() => {
         console.log('added ', x)
@@ -49,7 +49,7 @@ readFile(inFile, 'utf8', (error, text) => {
       .catch((err) => {
         console.log(err)
       })
-    */ 
+    */
 
 
 
