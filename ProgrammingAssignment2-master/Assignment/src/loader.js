@@ -7,6 +7,7 @@ new Vue({
     contentY: [],
     secondFile: false,
     showButton: false,
+    showResult: false,
     correlation: "",
     b0: "",
     b1: ""
@@ -85,6 +86,7 @@ new Vue({
         }
         this.b0 = answerArray[1]
         this.b1 = answerArray[2]
+        this.showResult = true
       }
     },
     clearFileSel() {

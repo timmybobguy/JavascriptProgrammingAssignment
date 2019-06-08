@@ -7,12 +7,13 @@
 	<script src="src/Controller.js"></script>
 	<script src="src/numberArray.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="src/css.css">
 
 </head>
 
 <body>
 
-<div id="app">
+<div id="app" class="center-div">
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">Correlation calculator</h1>
@@ -20,21 +21,41 @@
 		</div>
   </div>
 	<div class="col-lg-6 col-sm-6 col-12">
-    <label class="btn btn-block btn-primary">
+    <label class="btn btn-block btn-primary center-div">
         Browse&hellip; <input id="fileInput" type="file" @change="onFileChange" style="display: none;">
     </label>
   </div>
 
-	<table id="dataTable">
+	<table  class="table table-dark" id="dataTable">
 	</table>
 
 
-		<br />
-		<button v-if="showButton" v-on:click="calculate">Calculate me</button>
-		<br />
-		<p> Correlation: {{correlation}} </p>
-		<p> B0: {{b0}} </p>
-		<p> B1: {{b1}} </p>
+
+	<button type="button" class="btn btn-primary" v-if="showButton" v-on:click="calculate">Calculate me</button>
+
+	<div v-if="showResult">
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Correlation</h5>
+		    <p class="card-text">{{correlation}}</p>
+		  </div>
+		</div>
+
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">B0</h5>
+				<p class="card-text">{{b0}}</p>
+			</div>
+		</div>
+
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">B1</h5>
+				<p class="card-text">{{b1}}</p>
+			</div>
+		</div>
+	</div>
+
 </div>
 
 <script src="src/loader.js"></script>
