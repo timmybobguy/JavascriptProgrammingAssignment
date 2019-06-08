@@ -7,7 +7,6 @@ new Vue({
     contentY: [],
     secondFile: false,
     showButton: false,
-    showInput: true,
     correlation: "",
     b0: "",
     b1: ""
@@ -18,7 +17,6 @@ new Vue({
       if (files.length) {
         if (this.secondFile == true) {
           this.clearFileSel()
-          this.showInput = false
         }
         this.loadNumbers(files[0])
       }
