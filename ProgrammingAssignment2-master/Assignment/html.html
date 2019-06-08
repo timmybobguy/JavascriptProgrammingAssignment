@@ -6,21 +6,29 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="src/Controller.js"></script>
 	<script src="src/numberArray.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
 <body>
 
 <div id="app">
-    {{message}}
-		<br />
-		<br />
-    <input type="file" @change="onFileChange">
-    <br />
-    <br />
-    <p> X Values: {{contentX}} </p>
-		<br />
-    <p> Y Values: {{contentY}} </p>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Correlation calculator</h1>
+			<p class="lead"> {{message}} </p>
+		</div>
+  </div>
+	<div class="col-lg-6 col-sm-6 col-12">
+    <label class="btn btn-block btn-primary">
+        Browse&hellip; <input type="file" @change="onFileChange" style="display: none;">
+    </label>
+  </div>
+
+	<table id="dataTable">
+	</table>
+
+
 		<br />
 		<button v-if="showButton" v-on:click="calculate">Calculate me</button>
 		<br />

@@ -21,10 +21,22 @@ new Vue({
 
     loadNumbers(file) {
       let reader = new FileReader()
+      var table = document.getElementById("dataTable")
 
       if (this.secondFile == false) {
         reader.onload = (e) => {
           this.contentX =  e.target.result.split(/\n/)
+
+          var tr = document.createElement("tr")
+          tr.innerHTML = "X Values"
+
+          for (var i = 0; i < this.contentX.length; i++) {
+            var td = document.createElement("td")
+            td.innerHTML = this.contentX[i]
+            tr.appendChild(td)
+          }
+          table.appendChild(tr)
+
         }
         this.secondFile = true
         this.message = this.messageData[1]
@@ -35,6 +47,16 @@ new Vue({
         this.secondFile = false
         this.message = this.messageData[0]
         this.showButton = true
+
+        var tr = document.createElement("tr")
+        tr.innerHTML = "Y Values"
+
+        for (var i = 0; i < this.contentX.length; i++) {
+          var td = document.createElement("td")
+          td.innerHTML = this.contentY[i]
+          tr.appendChild(td)
+        }
+        table.appendChild(tr)
       }
 
       reader.readAsText(file)
