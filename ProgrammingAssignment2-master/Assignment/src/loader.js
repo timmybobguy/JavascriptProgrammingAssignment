@@ -7,6 +7,7 @@ new Vue({
     contentY: [],
     secondFile: false,
     showButton: false,
+    showInput: true,
     correlation: "",
     b0: "",
     b1: ""
@@ -15,6 +16,10 @@ new Vue({
     onFileChange(e) {
       let files = e.target.files
       if (files.length) {
+        if (this.secondFile == true) {
+          this.clearFileSel()
+          this.showInput = false
+        }
         this.loadNumbers(files[0])
       }
     },
@@ -40,26 +45,32 @@ new Vue({
         }
         this.secondFile = true
         this.message = this.messageData[1]
+
+
       } else {
         reader.onload = (e) => {
           this.contentY =  e.target.result.split(/\n/)
+
+          var tr = document.createElement("tr")
+          tr.innerHTML = "Y Values"
+
+          for (var i = 0; i < this.contentY.length; i++) {
+            var td = document.createElement("td")
+            td.innerHTML = this.contentY[i]
+            tr.appendChild(td)
+          }
+          table.appendChild(tr)
+
         }
         this.secondFile = false
         this.message = this.messageData[0]
         this.showButton = true
 
-        var tr = document.createElement("tr")
-        tr.innerHTML = "Y Values"
 
-        for (var i = 0; i < this.contentX.length; i++) {
-          var td = document.createElement("td")
-          td.innerHTML = this.contentY[i]
-          tr.appendChild(td)
-        }
-        table.appendChild(tr)
       }
 
       reader.readAsText(file)
+
 
     },
     calculate() {
@@ -77,6 +88,17 @@ new Vue({
         this.b0 = answerArray[1]
         this.b1 = answerArray[2]
       }
+    },
+    clearFileSel() {
+      var oldInput = document.getElementById('fileInput')
+      var newInput = document.createElement('input')
+      newInput.id    = oldInput.id
+      newInput.type  = oldInput.type
+      newInput.name  = oldInput.name
+      newInput.size  = oldInput.size
+      newInput.class  = oldInput.class
+      newInput.style = oldInput.style
+      oldInput.parentNode.replaceChild(newInput, oldInput)
     }
 
   }

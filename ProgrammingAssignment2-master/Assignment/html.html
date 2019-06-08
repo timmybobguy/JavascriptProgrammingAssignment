@@ -21,7 +21,7 @@
   </div>
 	<div class="col-lg-6 col-sm-6 col-12">
     <label class="btn btn-block btn-primary">
-        Browse&hellip; <input type="file" @change="onFileChange" style="display: none;">
+        Browse&hellip; <input v-if="showInput" id="fileInput" type="file" @change="onFileChange" style="display: none;">
     </label>
   </div>
 
