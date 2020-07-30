@@ -4,10 +4,6 @@ class NumberArray {
 		this.allMyYValues = []
 	}
 
-	testFunction(a,b) {
-		return a + b
-	}
-
 	addValues(newXvalue, newYvalue) {
 		this.allMyXValues.push(newXvalue)
 		this.allMyYValues.push(newYvalue)

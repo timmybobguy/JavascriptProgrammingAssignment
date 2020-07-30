@@ -11,15 +11,15 @@ let outFile = process.argv[4]
 
 console.log("%s \r\n%s", inFileX, inFileY, outFile)
 
-readFile(inFileX, inFileY, 'utf8', (error, text) => {
+readFile(inFileX, inFileY, 'utf8', (error, textX, textY) => {
   if (error) {
     throw error
   }
 
-  let dataArrayX = text.split('\r\n').map(x => Number(x))
+  let dataArrayX = textX.split('\r\n').map(x => Number(x))
   console.log(dataArrayX)
 
-  let dataArrayY = text.split('\r\n').map(x => Number(x))
+  let dataArrayY = textY.split('\r\n').map(x => Number(x))
   console.log(dataArrayY)
 
   //let sum = Calc.calcSum(dataArray)
@@ -41,7 +41,7 @@ readFile(inFileX, inFileY, 'utf8', (error, text) => {
       console.log(err)
     }
   }
-
+  */
   try {
     appendFileSync(outFile, 'sum = ' + sum + '\r\n')
     console.log('sum added ', sum);
@@ -49,5 +49,5 @@ readFile(inFileX, inFileY, 'utf8', (error, text) => {
     console.log(err)
   }
 
-  */
+  
 })
